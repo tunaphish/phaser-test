@@ -1,17 +1,25 @@
 import "phaser";
-import { MainScene } from "./scenes/mainScene";
+import BootScene from "./scenes/bootScene";
+import MainScene from "./scenes/mainScene";
+import MenuScene from "./scenes/menuScene";
+import UiScene from "./scenes/uiScene";
+import CreditsScene from "./scenes/creditsScene";
 
 // main game configuration
 const config: Phaser.Types.Core.GameConfig = {
-  width: 800,
-  height: 600,
+  width: 600,
+  height: 800,
   type: Phaser.AUTO,
   parent: "game",
-  scene: MainScene,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH
+  },
+  scene: [BootScene, MainScene, MenuScene, UiScene, CreditsScene],
   physics: {
     default: "arcade",
     arcade: {
-      gravity: { y: 200 }
+      gravity: { y: 0 }
     }
   }
 };
