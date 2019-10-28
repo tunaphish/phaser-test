@@ -9,14 +9,14 @@ export default class BootScene extends Phaser.Scene {
     this.handleLoadScreen();
     this.load.image(
       "tiles",
-      "./assets/tilesets/tuxmon-sample-32px-extruded.png"
+      "./src/assets/tilesets/tuxmon-sample-32px-extruded.png"
     );
-    this.load.image("compass", "./assets/compass.png");
-    this.load.image("pointer", "./assets/pointer.png");
-    this.load.tilemapTiledJSON("map", "./assets/tilemaps/tuxemon-town.json");
-    this.load.atlas("atlas", "./assets/shizuka.png", "./assets/shizuka.json");
-    this.load.audio("hover", "./assets/sounds/hover.wav");
-    this.load.audio("select", "./assets/sounds/select.wav");
+    this.load.image("compass", "./src/assets/compass.png");
+    this.load.image("pointer", "./src/assets/pointer.png");
+    this.load.tilemapTiledJSON("map", "./src/assets/tilemaps/tuxemon-town.json");
+    this.load.atlas("atlas", "./src/assets/shizuka.png", "./src/assets/shizuka.json");
+    this.load.audio("hover", "./src/assets/sounds/hover.wav");
+    this.load.audio("select", "./src/assets/sounds/select.wav");
   }
 
   create() {
