@@ -1,5 +1,5 @@
 export default {
-  radiansToDegrees: function(radians) {
-    return (radians / Math.PI) * 180;
-  }
+    radiansToDegrees: function(radians) {
+        return (radians / Math.PI) * 180;
+    }
 };
