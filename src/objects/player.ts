@@ -1,8 +1,8 @@
 import utility from '../utility';
 
 export default class Player extends Phaser.GameObjects.Sprite {
-    static readonly SPEED = 350;
-    static readonly DEAD_ZONE = 20;
+    readonly SPEED = 350;
+    readonly DEAD_ZONE = 20;
 
     constructor(scene, x, y) {
         super(scene, x, y, 'atlas', 'shizuka-idle-bottom/move-shizuka-00.png');
@@ -22,8 +22,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
         if (pointer.isDown && pointer.getDistance() > this.DEAD_ZONE) {
             const totalDistance = pointer.getDistanceX() + pointer.getDistanceY();
-            velocityX = (SPEED * (pointer.x - pointer.downX)) / totalDistance;
-            velocityY = (SPEED * (pointer.y - pointer.downY)) / totalDistance;
+            velocityX = (this.SPEED * (pointer.x - pointer.downX)) / totalDistance;
+            velocityY = (this.SPEED * (pointer.y - pointer.downY)) / totalDistance;
 
             const angle = utility.radiansToDegrees(pointer.getAngle());
 
