@@ -1,11 +1,11 @@
 import Player from '../objects/player';
 
-export default class MainScene extends Phaser.Scene {
+export default class WorldScene extends Phaser.Scene {
     private player!: Player;
 
     constructor() {
         super({
-            key: 'MainScene',
+            key: 'WorldScene',
         });
     }
 
@@ -19,7 +19,7 @@ export default class MainScene extends Phaser.Scene {
         const worldLayer = map.createStaticLayer('World', tileset, 0, 0);
         const aboveLayer = map.createStaticLayer('Above Player', tileset, 0, 0);
 
-        worldLayer.setCollisionByProperty({ collides: true });
+        // worldLayer.setCollisionByProperty({ collides: true });
         aboveLayer.setDepth(10);
 
         // Object layers in Tiled let you embed extra info into a map - like a spawn point or custom
@@ -37,5 +37,14 @@ export default class MainScene extends Phaser.Scene {
 
     update(time, delta) {
         this.player.update(time, delta);
+        this.inputHandler();
+    }
+
+    inputHandler() {
+        this.input.keyboard.on('keydown_ESC', event => {
+            this.scene.pause('WorldScene');
+            this.scene.pause('UiScene');
+            this.scene.launch('MenuScene');
+        });
     }
 }
