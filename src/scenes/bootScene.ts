@@ -10,6 +10,9 @@ export default class BootScene extends Phaser.Scene {
         this.load.image('tiles', './src/assets/tilesets/tuxmon-sample-32px-extruded.png');
         this.load.image('compass', './src/assets/compass.png');
         this.load.image('pointer', './src/assets/pointer.png');
+        this.load.image('grid', './src/assets/icons/grid.svg');
+        this.load.image('titleImage', './src/assets/phaser.png');
+
         this.load.tilemapTiledJSON('map', './src/assets/tilemaps/tuxemon-town.json');
         this.load.atlas('atlas', './src/assets/shizuka.png', './src/assets/shizuka.json');
         this.load.audio('hover', './src/assets/sounds/hover.wav');
@@ -18,7 +21,7 @@ export default class BootScene extends Phaser.Scene {
 
     create() {
         this.createAnimations();
-        this.scene.start('WorldScene');
+        this.scene.start('TitleScene');
     }
 
     handleLoadScreen() {

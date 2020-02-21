@@ -10,11 +10,24 @@ export default class UiScene extends Phaser.Scene {
             key: 'UiScene',
         });
 
-        this.ANGLE_OFFSET = 100;
+        this.ANGLE_OFFSET = 110;
     }
 
     create() {
+        this.add
+            .image(this.cameras.main.width - 30, 30, 'grid')
+            .setTintFill(0xffffff)
+            .setScale(2)
+            .setInteractive()
+            .on('pointerup', () => {
+                this.sound.play('select');
+                this.scene.pause('UiScene');
+                this.scene.pause('WorldScene');
+                this.scene.run('MenuScene');
+            });
+
         this.joystick = this.add.image(0, 0, 'compass').setVisible(false);
+
         this.pointer = this.add
             .image(0, 0, 'pointer')
             .setScale(0.05)
@@ -33,12 +46,8 @@ export default class UiScene extends Phaser.Scene {
             .setAngle(utility.radiansToDegrees(pointer.getAngle()) + this.ANGLE_OFFSET);
 
         this.input.on('pointerdown', pointer => {
-            if (!this.joystick.visible) {
-                this.joystick.setVisible(true).setPosition(pointer.x, pointer.y);
-            }
-            if (!this.pointer.visible) {
-                this.pointer.setVisible(true);
-            }
+            this.joystick.setVisible(true).setPosition(pointer.x, pointer.y);
+            this.pointer.setVisible(true);
         });
 
         this.input.on('pointerup', pointer => {

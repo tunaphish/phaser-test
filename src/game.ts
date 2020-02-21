@@ -4,7 +4,6 @@ import WorldScene from './scenes/worldScene';
 import TitleScene from './scenes/titleScene';
 import UiScene from './scenes/uiScene';
 import MenuScene from './scenes/menuScene';
-import BattleScene from './scenes/battleScene';
 
 // main game configuration
 const config: Phaser.Types.Core.GameConfig = {
@@ -16,7 +15,7 @@ const config: Phaser.Types.Core.GameConfig = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
     },
-    scene: [BootScene, WorldScene, TitleScene, UiScene, MenuScene, BattleScene],
+    scene: [BootScene, WorldScene, TitleScene, UiScene, MenuScene],
     physics: {
         default: 'arcade',
         arcade: {
